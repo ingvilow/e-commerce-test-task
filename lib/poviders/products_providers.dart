@@ -8,7 +8,9 @@ import 'package:test_task/models/products.dart';
 class ProductProviders with ChangeNotifier {
   /// массив провайдеров, чтобы не тянуть запросы в main
   List<SingleChildWidget> providers = [
-    ChangeNotifierProvider<ProductProviders>(create: (_) => ProductProviders()),
+    ChangeNotifierProvider<ProductProviders>(
+      create: (_) => ProductProviders(),
+    ),
   ];
 
   Products? products;
@@ -23,6 +25,14 @@ class ProductProviders with ChangeNotifier {
   /// получить один продукт из АПИ
   getProductDetail() async {
     detailProduct = await ApiServiceClient().fetchProductDetail();
+    notifyListeners();
+  }
+
+  /// смена цвета при нажатии на кнопку
+  bool isSelected = true;
+
+  void changeColor() {
+    isSelected = !isSelected;
     notifyListeners();
   }
 }

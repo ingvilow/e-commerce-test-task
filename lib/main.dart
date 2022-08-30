@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_task/pages/main_screen.dart';
 import 'package:test_task/poviders/products_providers.dart';
+import 'package:test_task/theme/themeApp.dart';
 
 void main() {
   runApp(
@@ -17,10 +18,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MainScreen());
+    return MaterialApp(theme: AppTheme.defaultTheme, home: const MainScreen());
   }
 }
