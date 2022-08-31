@@ -8,7 +8,9 @@ import 'package:test_task/models/products.dart';
 class ProductProviders with ChangeNotifier {
   /// массив провайдеров, чтобы не тянуть запросы в main
   List<SingleChildWidget> providers = [
-    ChangeNotifierProvider<ProductProviders>(create: (_) => ProductProviders()),
+    ChangeNotifierProvider<ProductProviders>(
+      create: (_) => ProductProviders(),
+    ),
   ];
 
   Products? products;
