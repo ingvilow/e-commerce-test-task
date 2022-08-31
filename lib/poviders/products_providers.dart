@@ -27,12 +27,4 @@ class ProductProviders with ChangeNotifier {
     detailProduct = await ApiServiceClient().fetchProductDetail();
     notifyListeners();
   }
-
-  /// смена цвета при нажатии на кнопку
-  bool isSelected = true;
-
-  void changeColor() {
-    isSelected = !isSelected;
-    notifyListeners();
-  }
 }
