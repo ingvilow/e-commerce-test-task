@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:test_task/pages/widgets/category_ui_slidable.dart';
+import 'package:test_task/pages/widgets/search_bar_widget.dart';
 import 'package:test_task/pages/widgets/text_before_category_ui.dart';
-import 'package:test_task/poviders/products_providers.dart';
+import 'package:test_task/theme/colors.dart';
 import 'package:test_task/theme/typography.dart';
 
 class MainScreen extends StatefulWidget {
@@ -14,15 +14,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   @override
-  void initState() {
-    final products = Provider.of<ProductProviders>(context, listen: false);
-    products.getProducts();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final products = Provider.of<ProductProviders>(context);
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -57,6 +49,33 @@ class _MainScreenState extends State<MainScreen> {
             height: 24,
           ),
           CategorySelectUI(),
+          SizedBox(
+            height: 34,
+          ),
+          SearchBarWidget(),
+          SizedBox(
+            height: 24,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                TypographysStrings().hotSales,
+                style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontFamily: 'Mark Pro',
+                    fontSize: 25),
+              ),
+              Text(
+                TypographysStrings().seeMore,
+                style: TextStyle(
+                    fontWeight: FontWeight.w300,
+                    color: ColorsApp.orange,
+                    fontFamily: 'Mark Pro',
+                    fontSize: 15),
+              )
+            ],
+          ),
         ],
       ),
     );
